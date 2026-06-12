@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WorldRank — Rankings Mundiales en Tiempo Real</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🌍</span>
+      <span class="logo-text">World<span class="accent">Rank</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#trending">Tendencias</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#reddit">Reddit</a>
+      <a href="#twitter">X / Twitter</a>
+    </div>
+    <div class="nav-time">
+      <span class="live-dot"></span>
+      <span id="last-updated">Actualizando...</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Lo más buscado<br/><span class="gradient-text">en el mundo ahora</span></h1>
+      <p class="hero-subtitle">Rankings en tiempo real de Google Trends, YouTube, Reddit y X</p>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-number" id="total-topics">—</span>
+          <span class="stat-label">Temas rastreados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Fuentes de datos</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">🌐</span>
+          <span class="stat-label">Cobertura global</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-globe">
+      <div class="globe-ring ring-1"></div>
+      <div class="globe-ring ring-2"></div>
+      <div class="globe-ring ring-3"></div>
+      <div class="globe-center">🌍</div>
+    </div>
+  </header>
+
+  <!-- TRENDING SECTION -->
+  <section class="section" id="trending">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">🔥</span>
+        <h2>Google Trends Global</h2>
+      </div>
+      <span class="badge">EN VIVO</span>
+    </div>
+    <div class="ranking-grid" id="trends-grid">
+      <!-- Generado por JS -->
+    </div>
+  </section>
+
+  <!-- YOUTUBE SECTION -->
+  <section class="section" id="youtube">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">▶️</span>
+        <h2>YouTube Trending</h2>
+      </div>
+      <span class="badge badge-red">TOP 10</span>
+    </div>
+    <div class="ranking-grid" id="youtube-grid">
+      <!-- Generado por JS -->
+    </div>
+  </section>
+
+  <!-- REDDIT SECTION -->
+  <section class="section" id="reddit">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">👽</span>
+        <h2>Reddit — Lo más votado</h2>
+      </div>
+      <span class="badge badge-orange">HOT</span>
+    </div>
+    <div class="ranking-grid" id="reddit-grid">
+      <!-- Generado por JS -->
+    </div>
+  </section>
+
+  <!-- TWITTER/X SECTION -->
+  <section class="section" id="twitter">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">𝕏</span>
+        <h2>X / Twitter Trending</h2>
+      </div>
+      <span class="badge badge-blue">TRENDING</span>
+    </div>
+    <div class="ranking-grid" id="twitter-grid">
+      <!-- Generado por JS -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>🌍 <strong>WorldRank</strong> — Rankings mundiales actualizados automáticamente</p>
+      <p class="footer-sub">Datos obtenidos de Google Trends · YouTube · Reddit · X/Twitter</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
