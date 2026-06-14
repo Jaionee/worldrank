@@ -51,16 +51,16 @@ async function fetchTrends() {
 async function fetchYouTube() {
   const YT_RSS = "https://www.youtube.com/feeds/videos.xml?chart=most_popular&hl=es&gl=ES";
   const fallback = [
-    { position: 1, title: "World Cup 2026 Highlights", meta: "📺 ESPN · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=w0AOGeqOnFY" },
-    { position: 2, title: "MrBeast — $1 vs $1,000,000,000", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=lh5tNKa3GbA" },
-    { position: 3, title: "New iPhone 18 Pro Review", meta: "📺 MKBHD · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=H_zU0VMTyC0" },
-    { position: 4, title: "AI Creates Realistic Human", meta: "📺 TechWorld · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=J6r1U5UQaH8" },
-    { position: 5, title: "Incredible Football Goals 2026", meta: "📺 SportsCenter · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=9bZkp7q19f0" },
-    { position: 6, title: "How Quantum Computers Work", meta: "📺 Veritasium · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=OWJCfOvochA" },
-    { position: 7, title: "Top 10 Movies This Month", meta: "📺 IMDb · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=qsPgsfnsCqg" },
-    { position: 8, title: "Extreme Weather Compilation", meta: "📺 BBC News · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=8PvR1BwBBb8" },
-    { position: 9, title: "New Song — Global Hit", meta: "📺 Vevo · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=kXYiU_JCYtU" },
-    { position: 10, title: "Prison Break Season 6 Trailer", meta: "📺 Netflix · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=AL8i7S2bCgQ" },
+    { position: 1, title: "Beast Games — Season 2 Episodio 1", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=k3-VbHekdxE" },
+    { position: 2, title: "Último en salir del supermercado gana $250.000", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=zRtGL0-5rg4" },
+    { position: 3, title: "Shakira, Burna Boy — Dai Dai (Video Oficial)", meta: "📺 Shakira · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=fcnDmrtj6Sk" },
+    { position: 4, title: "Probé todas las tendencias de moda viral", meta: "📺 FashionTrends · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=CEuwFT2FGBs" },
+    { position: 5, title: "MrBeast en TIME100 Summit 2026", meta: "📺 TIME · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=hwGsbLKxit4" },
+    { position: 6, title: "El imperio multimillonario de MrBeast", meta: "📺 Documental · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=8sEOV-r7yFI" },
+    { position: 7, title: "Beast Games S2 — Tráiler Oficial", meta: "📺 Prime Video · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=RUaoJQ4ZfLY" },
+    { position: 8, title: "Music Mix 2026 — Mejores Remixes", meta: "📺 Music Channel · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=C-VH__p_TKM" },
+    { position: 9, title: "Vybz Kartel — 2026 (Video Oficial)", meta: "📺 Vybz Kartel · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=RetXTfsEawE" },
+    { position: 10, title: "$1 vs $1.000.000.000 — Tech Futurista", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=pAnGwRiQ4-4" },
   ];
 
   try {
