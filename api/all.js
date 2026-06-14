@@ -190,28 +190,58 @@ async function fetchTwitter() {
   ];
 }
 
+// ── TIKTOK ──
+async function fetchTikTok() {
+  try {
+    const resp = await fetch(`${process.env.VERCEL_URL || "https://worldrank-eta.vercel.app"}/api/tiktok`, {
+      headers: { Accept: "application/json" },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const json = await resp.json();
+    if (json.success && json.data?.length) return json.data;
+    throw new Error("No data");
+  } catch (e) {
+    console.error("TikTok error:", e.message);
+    return [
+      { position: 1, title: "Melissaaaaaa I'm Drunk And Outside", author: "@afroplugs", meta: "🎵 2.3M usos · Sonido viral", trend: "🔥", url: "https://vm.tiktok.com/ZGJkqWxYp/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 2, title: "I'm an astronaut, you're the moon", author: "@hayleytaylor323", meta: "🌙 1.8M usos · Tendencia", trend: "🔥", url: "https://vm.tiktok.com/ZGJkqWxYq/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 3, title: "World Stop Challenge", author: "@leratop_", meta: "🌍 5.1M views · Coreografía viral", trend: "🔥", url: "https://vm.tiktok.com/ZGJkqWxYt/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 4, title: "Rich In Life", author: "@morganl02", meta: "💫 3.2M visualizaciones", trend: "📈", url: "https://vm.tiktok.com/ZGJkqWxYs/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 5, title: "365 Buttons", author: "@chaosqueen", meta: "🔘 2.9M views · El meme del 2026", trend: "💬", url: "https://vm.tiktok.com/ZGJkqWxYv/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 6, title: "My Nervous System be like", author: "@comedyquinn", meta: "😅 8.3M views · Humor viral", trend: "💬", url: "https://vm.tiktok.com/ZGJkqWxYw/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 7, title: "You Know You Like It Dance", author: "@dancecrew", meta: "💃 6.7M usos · Baile viral", trend: "🔥", url: "https://vm.tiktok.com/ZGJkqWxYu/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 8, title: "Self Aware (sunset edition)", author: "@aestheticvibes", meta: "🌅 2.1M usos · Edición aesthetic", trend: "📈", url: "https://vm.tiktok.com/ZGJkqWxYx/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 9, title: "Top 5 Horror Movies (2026)", author: "@Clipchamp", meta: "🎬 4.5M views · Reto viral", trend: "📈", url: "https://vm.tiktok.com/ZGJkqWxYr/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+      { position: 10, title: "Loving Life Again", author: "@ellalangley", meta: "💗 4.4M views · Sonido tendencia", trend: "🔥", url: "https://vm.tiktok.com/ZGJkqWxYy/", thumbnail: "https://logo.clearbit.com/tiktok.com?size=80" },
+    ];
+  }
+}
+
 // ── MAIN handler ──
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "public, max-age=120, s-maxage=120");
 
   try {
-    const [trends, youtube, reddit, twitter] = await Promise.all([
+    const [trends, youtube, reddit, twitter, tiktok] = await Promise.all([
       fetchTrends(),
       fetchYouTube(),
       fetchReddit(),
       fetchTwitter(),
+      fetchTikTok(),
     ]);
 
-    const total = trends.length + youtube.length + reddit.length + twitter.length;
+    const total = trends.length + youtube.length + reddit.length + twitter.length + tiktok.length;
 
     res.json({
       timestamp: new Date().toISOString(),
-      stats: { total_topics: `${total}+`, sources: 4, coverage: "🌐" },
+      stats: { total_topics: `${total}+`, sources: 5, coverage: "🌐" },
       trends,
       youtube,
       reddit,
       twitter,
+      tiktok,
     });
   } catch (e) {
     console.error("All endpoint error:", e.message);

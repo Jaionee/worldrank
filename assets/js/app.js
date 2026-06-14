@@ -74,6 +74,7 @@ async function loadData() {
     youtube: "linear-gradient(135deg, #4facfe, #00f2fe)",
     reddit: "linear-gradient(135deg, #fa709a, #fee140)",
     twitter: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+    tiktok: "linear-gradient(135deg, #fe2c55, #25f4ee)",
   };
 
   try {
@@ -92,6 +93,7 @@ async function loadData() {
     renderGrid("youtube-grid", data.youtube, colors.youtube);
     renderGrid("reddit-grid", data.reddit, colors.reddit);
     renderGrid("twitter-grid", data.twitter, colors.twitter);
+    renderGrid("tiktok-grid", data.tiktok, colors.tiktok);
 
     updateTimestamp();
   } catch (e) {

@@ -238,6 +238,7 @@ body {
 .badge-red { background: linear-gradient(135deg, #ef4444, #991b1b); }
 .badge-orange { background: linear-gradient(135deg, #f97316, #c2410c); }
 .badge-blue { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+.badge-pink { background: linear-gradient(135deg, #fe2c55, #722fb0); }
 
 /* ===== RANKING GRID ===== */
 .ranking-grid {
