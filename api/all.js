@@ -47,7 +47,7 @@ async function fetchTrends() {
   }
 }
 
-// ── YOUTUBE (scraping real desde búsqueda) ──
+// ── YOUTUBE (scraping multi-categoría en paralelo) ──
 const YT_FALLBACK = [
   { position: 1, title: "Beast Games — Season 2 Episodio 1", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=k3-VbHekdxE" },
   { position: 2, title: "Último en salir del supermercado gana $250.000", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=zRtGL0-5rg4" },
@@ -60,56 +60,73 @@ const YT_FALLBACK = [
   { position: 9, title: "Vybz Kartel — 2026 (Video Oficial)", meta: "📺 Vybz Kartel · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=RetXTfsEawE" },
   { position: 10, title: "$1 vs $1.000.000.000 — Tech Futurista", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=pAnGwRiQ4-4" },
 ];
-const YT_SEARCH_QUERIES = ["trending music 2026", "viral video 2026", "trending today 2026"];
+const YT_CATEGORIES = [
+  { label: "viral",  query: "viral video 2026" },
+  { label: "gaming", query: "gaming 2026" },
+  { label: "tech",   query: "technology 2026" },
+  { label: "sports", query: "sports highlights 2026" },
+  { label: "news",   query: "breaking news 2026" },
+];
+
+async function scrapeYTCategory(cat) {
+  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(cat.query)}&sp=CAMSAhAB`;
+  const resp = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+    },
+    signal: AbortSignal.timeout(8000),
+  });
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  const html = await resp.text();
+  const match = html.match(/ytInitialData\s*=\s*({.*?});\s*<\/script>/);
+  if (!match) throw new Error("No ytInitialData");
+  const data = JSON.parse(match[1]);
+  const videos = [];
+  const sections = [
+    data?.contents?.twoColumnSearchResultsRenderer?.primaryContents?.sectionListRenderer?.contents,
+    data?.contents?.sectionListRenderer?.contents,
+  ];
+  for (const section of sections) {
+    if (!section) continue;
+    for (const item of section) {
+      const items = item?.itemSectionRenderer?.contents || [];
+      for (const content of items) {
+        const vr = content?.videoRenderer;
+        if (!vr || !vr.videoId) continue;
+        const title = vr.title?.runs?.[0]?.text || vr.title?.simpleText || "Sin título";
+        const author = vr.ownerText?.runs?.[0]?.text || vr?.longBylineText?.runs?.[0]?.text || "YouTube";
+        videos.push({
+          position: videos.length + 1,
+          title: title.slice(0, 80),
+          meta: `📺 ${author} · YouTube Trending`,
+          trend: "▶️",
+          url: `https://youtube.com/watch?v=${vr.videoId}`,
+        });
+        if (videos.length >= 3) break;
+      }
+      if (videos.length >= 3) break;
+    }
+    if (videos.length >= 3) break;
+  }
+  return videos;
+}
 
 async function fetchYouTube() {
-  for (const query of YT_SEARCH_QUERIES) {
-    try {
-      const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}&sp=CAMSAhAB`;
-      const resp = await fetch(url, {
-        headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-          "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
-        },
-        signal: AbortSignal.timeout(8000),
-      });
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const html = await resp.text();
-      const match = html.match(/ytInitialData\s*=\s*({.*?});\s*<\/script>/);
-      if (!match) throw new Error("No ytInitialData");
-      const data = JSON.parse(match[1]);
-      const videos = [];
-      const sections = [
-        data?.contents?.twoColumnSearchResultsRenderer?.primaryContents?.sectionListRenderer?.contents,
-        data?.contents?.sectionListRenderer?.contents,
-      ];
-      for (const section of sections) {
-        if (!section) continue;
-        for (const item of section) {
-          const items = item?.itemSectionRenderer?.contents || [];
-          for (const content of items) {
-            const vr = content?.videoRenderer;
-            if (!vr || !vr.videoId) continue;
-            const title = vr.title?.runs?.[0]?.text || vr.title?.simpleText || "Sin título";
-            const author = vr.ownerText?.runs?.[0]?.text || vr?.longBylineText?.runs?.[0]?.text || "YouTube";
-            videos.push({
-              position: videos.length + 1,
-              title: title.slice(0, 80),
-              meta: `📺 ${author} · YouTube Trending`,
-              trend: "▶️",
-              url: `https://youtube.com/watch?v=${vr.videoId}`,
-            });
-            if (videos.length >= 10) break;
-          }
-          if (videos.length >= 10) break;
-        }
-        if (videos.length >= 10) break;
-      }
-      if (videos.length >= 5) return videos;
-    } catch (e) {
-      console.error(`YT search "${query}" error:`, e.message);
+  const allVideos = [];
+  const seenIds = new Set();
+  const results = await Promise.allSettled(YT_CATEGORIES.map(c =>
+    scrapeYTCategory(c).then(v => ({ label: c.label, videos: v }))
+  ));
+  for (const result of results) {
+    if (result.status !== "fulfilled") continue;
+    for (const v of result.value.videos) {
+      const vid = v.url.split("=")[1];
+      if (!seenIds.has(vid)) { seenIds.add(vid); allVideos.push(v); }
     }
   }
+  allVideos.sort(() => Math.random() - 0.5);
+  if (allVideos.length >= 5) return allVideos.slice(0, 10).map((v, i) => ({ ...v, position: i + 1 }));
   return YT_FALLBACK;
 }
 
