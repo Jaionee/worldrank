@@ -4,16 +4,16 @@
 const YT_RSS = "https://www.youtube.com/feeds/videos.xml?chart=most_popular&hl=es&gl=ES";
 
 const fallback = [
-  { position: 1, title: "World Cup 2026 Highlights", meta: "📺 ESPN · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 2, title: "MrBeast - $1 vs $1,000,000,000", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 3, title: "New iPhone 18 Pro Review", meta: "📺 MKBHD · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 4, title: "AI Creates Realistic Human", meta: "📺 TechWorld · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 5, title: "Incredible Football Goals 2026", meta: "📺 SportsCenter · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 6, title: "How Quantum Computers Work", meta: "📺 Veritasium · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 7, title: "Top 10 Movies This Month", meta: "📺 IMDb · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 8, title: "Extreme Weather Compilation", meta: "📺 BBC News · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 9, title: "New Song - Global Hit", meta: "📺 Vevo · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
-  { position: 10, title: "Prison Break Season 6 Trailer", meta: "📺 Netflix · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=dQw4w9WgXcQ" },
+  { position: 1, title: "World Cup 2026 Highlights", meta: "📺 ESPN · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=w0AOGeqOnFY" },
+  { position: 2, title: "MrBeast - $1 vs $1,000,000,000", meta: "📺 MrBeast · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=lh5tNKa3GbA" },
+  { position: 3, title: "New iPhone 18 Pro Review", meta: "📺 MKBHD · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=H_zU0VMTyC0" },
+  { position: 4, title: "AI Creates Realistic Human", meta: "📺 TechWorld · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=J6r1U5UQaH8" },
+  { position: 5, title: "Incredible Football Goals 2026", meta: "📺 SportsCenter · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=9bZkp7q19f0" },
+  { position: 6, title: "How Quantum Computers Work", meta: "📺 Veritasium · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=OWJCfOvochA" },
+  { position: 7, title: "Top 10 Movies This Month", meta: "📺 IMDb · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=qsPgsfnsCqg" },
+  { position: 8, title: "Extreme Weather Compilation", meta: "📺 BBC News · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=8PvR1BwBBb8" },
+  { position: 9, title: "New Song - Global Hit", meta: "📺 Vevo · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=kXYiU_JCYtU" },
+  { position: 10, title: "Prison Break Season 6 Trailer", meta: "📺 Netflix · YouTube Trending", trend: "▶️", url: "https://youtube.com/watch?v=AL8i7S2bCgQ" },
 ];
 
 module.exports = async (req, res) => {
