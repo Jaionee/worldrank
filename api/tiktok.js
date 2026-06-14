@@ -53,6 +53,12 @@ function shuffle(arr) {
   return arr;
 }
 
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+function mesActual() {
+  const now = new Date();
+  return `${MESES[now.getMonth()]} ${now.getFullYear()}`;
+}
+
 async function scrapeRamdamTrends() {
   try {
     const res = await fetch('https://www.ramd.am/blog/trends-tiktok', {
@@ -134,7 +140,7 @@ async function scrapeDashTrends() {
     return shuffled.slice(0, 10).map((t, i) => ({
       title: `${t.tag} — ${t.count} publicaciones`,
       author: `@trending`,
-      meta: `🔝 Hashtag tendencia en TikTok · Junio 2026`,
+      meta: `🔝 Hashtag tendencia en TikTok · ${mesActual()}`,
       trend: '📈',
       url: `${TIKTOK_BASE}/tag/${t.tag.replace('#', '')}`,
     }));
@@ -171,7 +177,7 @@ module.exports = async (req, res) => {
           item.trend = cat.trend;
         }
       });
-      source = 'Tendencias verificadas Junio 2026';
+      source = `Tendencias verificadas ${mesActual()}`;
     }
     
     return res.status(200).json({
@@ -193,7 +199,7 @@ module.exports = async (req, res) => {
     const items = shuffle([...fallback]).slice(0, 10);
     return res.status(200).json({
       success: true,
-      source: 'TikTok Trending · Tendencias Junio 2026 🟡',
+      source: `TikTok Trending · Tendencias ${mesActual()} 🟡`,
       timestamp: new Date().toISOString(),
       data: items.map((item, i) => ({
         position: i + 1,
