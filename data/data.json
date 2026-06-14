@@ -1,0 +1,256 @@
+{
+  "timestamp": "2026-06-14T06:16:11.894548",
+  "trends": [
+    {
+      "position": 1,
+      "title": "US Open 2026",
+      "meta": "🔍 2M+ búsquedas",
+      "trend": "🔥"
+    },
+    {
+      "position": 2,
+      "title": "World Cup Qualifiers",
+      "meta": "🔍 1.5M+ búsquedas",
+      "trend": "🔥"
+    },
+    {
+      "position": 3,
+      "title": "iPhone 18 Pro",
+      "meta": "🔍 1.2M+ búsquedas",
+      "trend": "🔥"
+    },
+    {
+      "position": 4,
+      "title": "Hurricane Season",
+      "meta": "🔍 980K+ búsquedas",
+      "trend": "📈"
+    },
+    {
+      "position": 5,
+      "title": "Bitcoin Price Today",
+      "meta": "🔍 850K+ búsquedas",
+      "trend": "📈"
+    },
+    {
+      "position": 6,
+      "title": "AI News",
+      "meta": "🔍 720K+ búsquedas",
+      "trend": "📈"
+    },
+    {
+      "position": 7,
+      "title": "Tesla Robotaxi",
+      "meta": "🔍 680K+ búsquedas",
+      "trend": "📈"
+    },
+    {
+      "position": 8,
+      "title": "Summer Olympics 2028",
+      "meta": "🔍 610K+ búsquedas",
+      "trend": "📈"
+    },
+    {
+      "position": 9,
+      "title": "NVIDIA Stock",
+      "meta": "🔍 590K+ búsquedas",
+      "trend": "📈"
+    },
+    {
+      "position": 10,
+      "title": "SpaceX Mars Mission",
+      "meta": "🔍 520K+ búsquedas",
+      "trend": "📈"
+    }
+  ],
+  "youtube": [
+    {
+      "position": 1,
+      "title": "World Cup 2026 Highlights",
+      "meta": "📺 ESPN · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 2,
+      "title": "MrBeast — $1 vs $1,000,000,000",
+      "meta": "📺 MrBeast · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 3,
+      "title": "New iPhone 18 Pro Review",
+      "meta": "📺 MKBHD · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 4,
+      "title": "AI Creates Realistic Human",
+      "meta": "📺 TechWorld · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 5,
+      "title": "Incredible Football Goals 2026",
+      "meta": "📺 SportsCenter · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 6,
+      "title": "How Quantum Computers Work",
+      "meta": "📺 Veritasium · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 7,
+      "title": "Top 10 Movies This Month",
+      "meta": "📺 IMDb · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 8,
+      "title": "Extreme Weather Compilation",
+      "meta": "📺 BBC News · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 9,
+      "title": "New Song — Global Hit",
+      "meta": "📺 Vevo · YouTube Trending",
+      "trend": "▶️"
+    },
+    {
+      "position": 10,
+      "title": "Prison Break Season 6 Trailer",
+      "meta": "📺 Netflix · YouTube Trending",
+      "trend": "▶️"
+    }
+  ],
+  "reddit": [
+    {
+      "position": 1,
+      "title": "What's a conspiracy theory you 100% believe in?",
+      "meta": "r/AskReddit · 52K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 2,
+      "title": "This photo from the World Cup is incredible",
+      "meta": "r/pics · 45K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 3,
+      "title": "ELI5: How does AI actually learn?",
+      "meta": "r/explainlikeimfive · 38K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 4,
+      "title": "TIL that octopuses have three hearts",
+      "meta": "r/todayilearned · 31K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 5,
+      "title": "A cool guide to surviving heat waves",
+      "meta": "r/coolguides · 28K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 6,
+      "title": "Meirl: Monday morning coffee",
+      "meta": "r/meirl · 25K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 7,
+      "title": "Programmer humor: JavaScript vs TypeScript",
+      "meta": "r/ProgrammerHumor · 22K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 8,
+      "title": "Damn, that's interesting: Ancient cities",
+      "meta": "r/Damnthatsinteresting · 20K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 9,
+      "title": "Wholesome: Grandparent learns gaming",
+      "meta": "r/MadeMeSmile · 18K votos",
+      "trend": "🔺"
+    },
+    {
+      "position": 10,
+      "title": "Gaming: Best indie games of 2026",
+      "meta": "r/gaming · 15K votos",
+      "trend": "🔺"
+    }
+  ],
+  "twitter": [
+    {
+      "position": 1,
+      "title": "#WorldCup2026",
+      "meta": "⚽ Deporte · 2.1M tweets",
+      "trend": "🚀"
+    },
+    {
+      "position": 2,
+      "title": "#AI",
+      "meta": "🤖 Tecnología · 1.8M tweets",
+      "trend": "🚀"
+    },
+    {
+      "position": 3,
+      "title": "#Bitcoin",
+      "meta": "💰 Finanzas · 1.5M tweets",
+      "trend": "🚀"
+    },
+    {
+      "position": 4,
+      "title": "#Eurovision",
+      "meta": "🎵 Música · 980K tweets",
+      "trend": "📈"
+    },
+    {
+      "position": 5,
+      "title": "#NASA",
+      "meta": "🚀 Ciencia · 850K tweets",
+      "trend": "📈"
+    },
+    {
+      "position": 6,
+      "title": "#Netflix",
+      "meta": "🎬 Entretenimiento · 720K tweets",
+      "trend": "📈"
+    },
+    {
+      "position": 7,
+      "title": "#ElonMusk",
+      "meta": "💼 Personas · 680K tweets",
+      "trend": "📈"
+    },
+    {
+      "position": 8,
+      "title": "#ChatGPT",
+      "meta": "🤖 Tecnología · 610K tweets",
+      "trend": "📈"
+    },
+    {
+      "position": 9,
+      "title": "#Olympics",
+      "meta": "🏅 Deporte · 590K tweets",
+      "trend": "📈"
+    },
+    {
+      "position": 10,
+      "title": "#Gaming",
+      "meta": "🎮 Gaming · 520K tweets",
+      "trend": "📈"
+    }
+  ],
+  "stats": {
+    "total_topics": "40+",
+    "sources": 4,
+    "coverage": "🌐"
+  }
+}
