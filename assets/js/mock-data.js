@@ -20,8 +20,8 @@
         description: 'Freidora de aire con 12 funciones,控制 digital y aplicación móvil. La más vendida en Amazon.',
         longDescription: 'La Cosori Pro 5.5L se ha convertido en la airfryer de referencia gracias a sus 12 funciones programables, control desde app y resultados de cocción uniformes. Con capacidad para 5-6 personas, es ideal para familias que buscan cocinar más sano sin renunciar al sabor.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' },
-          { platform: 'AliExpress', url: '#', type: 'ver oferta' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B09JQRPJGS', type: 'comprar' },
+          { platform: 'AliExpress', url: 'https://www.aliexpress.com/w/wholesale-cosori-airfryer.html', type: 'ver oferta' }
         ],
         whereToBuy: 'Disponible en Amazon España, MediaMarkt y El Corte Inglés. En Amazon suele tener envío Prime.',
         alternatives: ['Airfryer Xiaomi Smart', 'Philips Essential Airfryer XL', 'Cecotec Cecofry Bombastik'],
@@ -44,8 +44,8 @@
         description: 'Robot aspirador y fregasuelos con navegación LDS, 4000Pa de succión y control por app.',
         longDescription: 'El Xiaomi S20 combina aspirado y fregado con navegación láser precisa. Mapea tu casa en minutos, evita obstáculos y puedes programarlo desde la app. Con 4000Pa de succión, con pelos de mascotas sin problema.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' },
-          { platform: 'AliExpress', url: '#', type: 'ver oferta' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B0CPYPMRL5', type: 'comprar' },
+          { platform: 'AliExpress', url: 'https://www.aliexpress.com/w/wholesale-xiaomi-robot-vacuum.html', type: 'ver oferta' }
         ],
         whereToBuy: 'Amazon España y AliExpress Official Store. En AliExpress suele estar 20-30€ más barato.',
         alternatives: ['Roborock Q5 Pro', 'Roomba i3+ EVO', 'Samsung Bespoke Jet Bot'],
@@ -68,7 +68,7 @@
         description: 'Cargador USB-C GaN de 100W con 4 puertos, compatible con MacBook, iPhone, Samsung y más.',
         longDescription: 'Este cargador UGREEN usa tecnología Nitruro de Galio (GaN) para ofrecer 100W en un tamaño compacto. Carga un MacBook Pro al 50% en 30 minutos. Tiene 3 puertos USB-C y 1 USB-A, con detección inteligente de dispositivos.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B0B1P9PBK7', type: 'comprar' }
         ],
         whereToBuy: 'Amazon España. También en la tienda oficial de UGREEN.',
         alternatives: ['Anker Prime GaN 100W', 'Baseus GaN 100W', 'SlimQ GaN 100W'],
@@ -91,7 +91,7 @@
         description: 'Auriculares True Wireless con cancelación de ruido adaptativa, sonido 360 y hasta 30h de batería.',
         longDescription: 'Los Buds3 Pro traen cancelación de ruido adaptativa de doble etapa, control por deslizamiento con sensor de fuerza, y sonido envolvente 360 con seguimiento de cabeza. Modo conversación activa automáticamente cuando hablas.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B0D1XY6T9P', type: 'comprar' }
         ],
         whereToBuy: 'Amazon España, Samsung.com y tiendas de electrónica.',
         alternatives: ['AirPods Pro 2', 'Sony WF-1000XM5', 'Nothing Ear (2)'],
@@ -114,7 +114,7 @@
         description: 'Genera vídeos ultrarealistas a partir de texto o imágenes. Resultados que parecen reales.',
         longDescription: 'Rivers AI está revolucionando la creación de vídeo con modelos de última generación. Genera clips de hasta 60 segundos con coherencia temporal impresionante, movimiento natural y calidad cinematográfica. Ideal para creadores de contenido, marketers y storytellers.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://rivers.ai', type: 'probar gratis' }
         ],
         whereToBuy: 'Directamente en rivers.ai. Plan gratuito disponible con marca de agua.',
         alternatives: ['Runway Gen-3', 'Pika Labs', 'Kaiber', 'HeyGen'],
@@ -137,7 +137,7 @@
         description: 'Crea presentaciones profesionales con IA generativa en segundos. Exporta a PDF, PPTX o web.',
         longDescription: 'Figma ha añadido generación de presentaciones completa con IA: diseña diapositivas, sugiere contenido, genera iconos coherentes y mantiene tu marca personal. Integración directa con tu sistema de diseño.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://figma.com/presentations', type: 'probar gratis' }
         ],
         whereToBuy: 'Figma.com. Plan gratuito muy completo. Profesional por 12€/mes.',
         alternatives: ['Canva IA', 'Gamma.app', 'Beautiful.ai', 'Google Slides + Gemini'],
@@ -163,7 +163,7 @@
         description: 'Asistente IA multimodal con voz, visión, generación de imágenes y análisis de datos.',
         longDescription: 'ChatGPT es el asistente IA más popular del mundo. Con GPT-4o, ofrece respuestas en tiempo real con voz natural, visión por cámara, análisis de archivos, generación de imágenes DALL-E y navegación web. La versión Pro desbloquea razonamiento avanzado con o1 y acceso prioritario.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://chatgpt.com', type: 'probar gratis' }
         ],
         whereToBuy: 'chatgpt.com. Plan gratuito disponible. Plus 20€/mes. Pro 200€/mes.',
         alternatives: ['Claude Pro', 'Gemini Advanced', 'Perplexity Pro', 'DeepSeek'],
@@ -186,7 +186,7 @@
         description: 'IA con énfasis en seguridad, pensamiento profundo y código. Perfecta para desarrolladores.',
         longDescription: 'Claude de Anthropic destaca por su capacidad de razonamiento, manejo de contextos largos (200k tokens) y generación de código excepcional. Claude Sonnet 4 compite cabeza a cabeza con GPT-4o en programación. Su tono es más reflexivo y cuidadoso.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://claude.ai', type: 'probar gratis' }
         ],
         whereToBuy: 'claude.ai. Plan gratuito limitado. Pro 18€/mes.',
         alternatives: ['ChatGPT Pro', 'Gemini Advanced', 'Cursor Pro', 'DeepSeek Chat'],
@@ -209,7 +209,7 @@
         description: 'Editor de código basado en VS Code con IA integrada que escribe, explica y refactoriza código.',
         longDescription: 'Cursor es un fork de VS Code con IA integrada a nivel nativo. Escribe código desde prompts, autocompleta en tiempo real con comprensión del contexto, refactoriza archivos enteros y entiende tu base de código completa. Imprescindible para desarrollo moderno.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://cursor.com', type: 'probar gratis' }
         ],
         whereToBuy: 'cursor.com. Plan gratuito con límite de 2000 solicitudes/mes.',
         alternatives: ['VS Code + Copilot', 'Windsurf', 'Zed AI', 'JetBrains AI'],
@@ -232,7 +232,7 @@
         description: 'Generación de vídeo HD ultrarealista. Crea clips cinematográficos desde texto en segundos.',
         longDescription: 'MiniMax (Hailuo AI) genera vídeos de alta definición con una calidad que compite con Sora de OpenAI. Movimientos fluidos, iluminación realista y coherencia temporal. Ideal para marketers, creadores y producción audiovisual independiente.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://hailuoai.com', type: 'probar gratis' }
         ],
         whereToBuy: 'hailuoai.com. Plan gratuito con créditos diarios.',
         alternatives: ['Sora (OpenAI)', 'Runway Gen-3', 'Pika 2.0', 'Kling'],
@@ -255,7 +255,7 @@
         description: 'Notas, wikis, proyectos y base de datos con IA integrada que escribe, resume y organiza.',
         longDescription: 'Notion con IA no solo organiza tu conocimiento: escribe borradores, resume reuniones, genera ideas de proyectos, traduce contenido y reescribe textos con tu tono. Integra calendario, bases de datos relacionales y más de 100 plantillas.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://notion.so', type: 'probar gratis' }
         ],
         whereToBuy: 'notion.so. Plan gratuito completo. IA add-on 10€/mes.',
         alternatives: ['Obsidian + Copilot', 'Coda IA', 'ClickUp IA', 'Mem.ai'],
@@ -278,7 +278,7 @@
         description: 'Clonación de voz, narración y doblaje IA con emociones y entonación natural.',
         longDescription: 'ElevenLabs domina la síntesis de voz con calidad imposible de distinguir de una humana. Ofrece clonación de voz con 1 minuto de muestra, biblioteca de voces, generación de audiolibros, doblaje automático manteniendo la voz original, y efectos de sonido IA.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'probar gratis' }
+          { platform: 'Web oficial', url: 'https://elevenlabs.io', type: 'probar gratis' }
         ],
         whereToBuy: 'elevenlabs.io. Plan gratuito con 10.000 caracteres/mes.',
         alternatives: ['Play.ht', 'Murf AI', 'Respeecher', 'Speechify'],
@@ -304,8 +304,8 @@
         description: 'Editor de vídeo todo-en-uno con templates virales, IA y efectos profesionales.',
         longDescription: 'CapCut es el editor oficial de ByteDance (TikTok). Ofrece plantillas virales, eliminación de fondo con IA, generación automática de subtítulos, transiciones profesionales y exportación directa a TikTok. La versión Pro desbloquea más recursos y exportación 4K.',
         affiliateLinks: [
-          { platform: 'App Store', url: '#', type: 'descargar' },
-          { platform: 'Google Play', url: '#', type: 'descargar' }
+          { platform: 'App Store', url: 'https://apps.apple.com/app/capcut/id1500855883', type: 'descargar' },
+          { platform: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.lemon.lvoverseas', type: 'descargar' }
         ],
         whereToBuy: 'iOS, Android y Web (capcut.com). Gratuito en todos.',
         alternatives: ['DaVinci Resolve', 'InShot', 'VN Editor', 'Premiere Rush'],
@@ -328,7 +328,7 @@
         description: 'Plataforma de portafolios creativos. Descubre tendencias de diseño gráfico, UX e ilustración.',
         longDescription: 'Behance de Adobe es donde los diseñadores publican sus mejores trabajos. Es la fuente #1 para ver tendencias visuales antes de que lleguen al mainstream: paletas de color, tipografía, UI/UX, motion graphics e ilustración.',
         affiliateLinks: [
-          { platform: 'Web oficial', url: '#', type: 'explorar' }
+          { platform: 'Web oficial', url: 'https://behance.net', type: 'explorar' }
         ],
         whereToBuy: 'behance.net. Gratuito. Requiere cuenta Adobe.',
         alternatives: ['Dribbble', 'ArtStation', 'Pinterest', 'DeviantArt'],
@@ -354,8 +354,8 @@
         description: 'Ordenador de placa única con CPU ARM de 2.4GHz, GPU VideoCore VII y soporte para dual 4K.',
         longDescription: 'La Raspberry Pi 5 es un 2-3x más rápida que la Pi 4. Ideal para servidor doméstico, centro multimedia, NAS, emulación retro, proyectos IoT o como PC básico. Consume apenas 7W.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' },
-          { platform: 'AliExpress', url: '#', type: 'ver oferta' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B0CTBG4LY4', type: 'comprar' },
+          { platform: 'AliExpress', url: 'https://www.aliexpress.com/w/wholesale-raspberry-pi-5.html', type: 'ver oferta' }
         ],
         whereToBuy: 'Amazon España, tiendas de electrónica. Escasez periódica, mejor reservar.',
         alternatives: ['Orange Pi 5', 'Banana Pi M7', 'ODROID N2L', 'Intel N100 Mini PC'],
@@ -381,7 +381,7 @@
         description: 'Cepillo térmico que alisa, da volumen y brillo sin tirones. Tecnología iónica.',
         longDescription: 'El cepillo alisador E-Shine usa iones negativos para eliminar el encrespamiento mientras alisa. Se calienta en 30 segundos y distribuye el calor de forma uniforme. Resultado: pelo liso, brillante y sin daños por calor excesivo.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B0C8QZ9YHK', type: 'comprar' }
         ],
         whereToBuy: 'Amazon España. También en primark y Sephora online.',
         alternatives: ['Revlon One-Step', 'Dyson Airwrap (caro)', 'Lena Brush Iron'],
@@ -407,8 +407,8 @@
         description: 'Consola portátil para juegos de PC con pantalla OLED HDR, batería mejorada y rendimiento superior.',
         longDescription: 'La Steam Deck OLED mejora la original con pantalla HDR OLED de 7.4", batería de 3-8 horas, procesador de 6nm más eficiente y WiFi 6E. Ejecuta toda tu biblioteca de Steam, emuladores, y hasta puede funcionar como PC de escritorio.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' },
-          { platform: 'Steam Store', url: '#', type: 'oficial' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/B0D1D8WBZQ', type: 'comprar' },
+          { platform: 'Steam Store', url: 'https://store.steampowered.com/steamdeck', type: 'oficial' }
         ],
         whereToBuy: 'Directamente en Steam. También Amazon y tiendas autorizadas.',
         alternatives: ['ASUS ROG Ally X', 'Nintendo Switch OLED', 'MSI Claw', 'Lenovo Legion Go'],
@@ -434,8 +434,8 @@
         description: 'El libro que desvela los secretos de los mejores comunicadores del mundo.',
         longDescription: 'Charles Duhigg (autor de "El poder de los hábitos") analiza por qué algunas personas conectan al instante mientras otras luchan por hacerse entender. Basado en neurociencia y casos reales, ofrece técnicas prácticas para mejorar tu comunicación.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' },
-          { platform: 'Casa del Libro', url: '#', type: 'comprar' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/8449342596', type: 'comprar' },
+          { platform: 'Casa del Libro', url: 'https://www.casadellibro.com/libro-supercomunicadores/9788449342596', type: 'comprar' }
         ],
         whereToBuy: 'Amazon, Casa del Libro, Fnac, El Corte Inglés.',
         alternatives: ['Cómo ganar amigos e influir sobre las personas', 'Habla como TED', 'El arte de escuchar'],
@@ -458,8 +458,8 @@
         description: 'Cómo crear startups exitosas usando el ciclo construir-medir-aprender.',
         longDescription: 'Eric Ries revolucionó el emprendimiento con el enfoque Lean: lanza rápido, mide resultados, aprende y repite. Este libro es la biblia del emprendimiento moderno, usado en Stanford, Harvard y Y Combinator.',
         affiliateLinks: [
-          { platform: 'Amazon', url: '#', type: 'comprar' },
-          { platform: 'Casa del Libro', url: '#', type: 'comprar' }
+          { platform: 'Amazon', url: 'https://www.amazon.es/dp/842340912X', type: 'comprar' },
+          { platform: 'Casa del Libro', url: 'https://www.casadellibro.com/libro-el-metodo-lean-startup/978842340912X', type: 'comprar' }
         ],
         whereToBuy: 'Amazon, todas las librerías principales.',
         alternatives: ['De cero a uno (Peter Thiel)', 'El dilema del innovador', 'Hooked'],
@@ -485,7 +485,7 @@
         description: 'Crea una agencia que produce vídeos para marcas usando herramientas IA (MiniMax, Rivers, HeyGen).',
         longDescription: 'Las marcas necesitan vídeo constante para redes sociales pero no pueden pagar producciones caras. Usando herramientas como Rivers AI, MiniMax y HeyGen, puedes producir vídeos de calidad profesional a una fracción del coste. Modelo de suscripción mensual: 500-2000€/cliente.',
         affiliateLinks: [
-          { platform: 'Herramientas recomendadas', url: '#', type: 'ver guía' }
+          { platform: 'Herramientas recomendadas', url: 'https://worldrank-eta.vercel.app/world-ranking/herramientas-ia', type: 'ver guía' }
         ],
         whereToBuy: 'Suscripciones a las herramientas IA (rivers.ai, minimax, elevenlabs).',
         alternatives: ['Producción tradicional de vídeo', 'Freelancers en Fiverr', 'Plantillas de Canva'],
@@ -508,7 +508,7 @@
         description: 'Crea una newsletter premium sobre un nicho específico usando IA para investigación y redacción.',
         longDescription: 'El auge de Substack y Beehiiv demuestra que la gente paga por contenido curado de calidad. Elige un nicho (ej: IA para abogados, tendencias de ecommerce, biotech) y usa IA para investigar, sintetizar y redactar análisis profundos. Modelo freemium: contenido gratis + premium 10-20€/mes.',
         affiliateLinks: [
-          { platform: 'Herramientas recomendadas', url: '#', type: 'ver guía' }
+          { platform: 'Herramientas recomendadas', url: 'https://worldrank-eta.vercel.app/world-ranking/herramientas-ia', type: 'ver guía' }
         ],
         whereToBuy: 'Substack, Beehiiv, Ghost. Gratis para empezar.',
         alternatives: ['Blog tradicional', 'Canal de YouTube', 'Podcast', 'Canal de Telegram'],
