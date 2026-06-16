@@ -146,7 +146,7 @@ async function loadData() {
   };
 
   try {
-    const resp = await fetch("/data/data.json", { signal: AbortSignal.timeout(8000) });
+    const resp = await fetch("data/data.json", { signal: AbortSignal.timeout(8000) });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
 
@@ -261,7 +261,17 @@ function initNewsletter() {
 
 // ── SPA Router para categorías y páginas especiales ──
 function getRoute() {
-  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  let path = window.location.pathname.replace(/\/+$/, '') || '/';
+  // Handle GitHub Pages subpath base
+  var baseEl = document.querySelector('base');
+  if (baseEl) {
+    try {
+      var basePath = new URL(baseEl.href, location.origin).pathname.replace(/\/$/, '');
+      if (basePath && path.startsWith(basePath)) {
+        path = path.slice(basePath.length) || '/';
+      }
+    } catch(e) {}
+  }
   return path;
 }
 

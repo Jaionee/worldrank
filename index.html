@@ -4,6 +4,14 @@
   <!-- PRIMARY META -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dynamic base for Vercel (/) and GitHub Pages (/worldrank/) -->
+  <script>
+    (function(){
+      var base = document.createElement('base');
+      base.href = location.hostname.includes('github.io') ? '/worldrank/' : '/';
+      document.head.prepend(base);
+    })();
+  </script>
   <title>WorldRank — Tendencias y Oportunidades de Negocio en Tiempo Real</title>
   <meta name="description" content="Descubre productos virales, herramientas IA y tendencias con potencial de negocio. Rankings actualizados en tiempo real. Encuentra tu próxima oportunidad.">
   <meta name="keywords" content="tendencias, productos virales, herramientas IA, rankings, oportunidades de negocio">
@@ -626,7 +634,7 @@
   </div>
 </footer>
 
-<script src="/assets/js/mock-data.js"></script>
-<script src="/assets/js/app.js"></script>
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
