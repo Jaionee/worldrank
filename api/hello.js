@@ -1,5 +1,4 @@
-// Simple test endpoint
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).json({ message: 'Hello World!', method: req.method });
+  res.status(200).json({ ok: true, method: req.method, time: Date.now() });
 };
