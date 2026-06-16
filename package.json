@@ -1,9 +1,0 @@
-{
-  "name": "worldrank",
-  "version": "1.0.0",
-  "private": true,
-  "description": "WorldRank — Rankings de tendencias globales",
-  "scripts": {
-    "build": "echo 'Static site'"
-  }
-}
