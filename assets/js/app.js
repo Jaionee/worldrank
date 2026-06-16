@@ -203,7 +203,7 @@ function initNewsletter() {
     try {
       const supabase = window.supabaseClient || window.supabase.createClient(
         'https://eswmmdejyldalfupmxit.supabase.co',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzd21tZGVqeWxkYWxmdXBteGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1ODk2NjcsImV4cCI6MjA5NzE2NTY2N30.XYEd5EtaBfBrbCeGLz0Ni0I-160DNIOa_vKbkC2mL4w'
+        'sb_publishable_lKjBf1R3Mp61eTFVj6Z8Vw_SirlxcAa'
       );
       window.supabaseClient = supabase;
 
@@ -480,7 +480,7 @@ function initAdvertiseForm() {
     try {
       const supabase = window.supabaseClient || window.supabase.createClient(
         'https://eswmmdejyldalfupmxit.supabase.co',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzd21tZGVqeWxkYWxmdXBteGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1ODk2NjcsImV4cCI6MjA5NzE2NTY2N30.XYEd5EtaBfBrbCeGLz0Ni0I-160DNIOa_vKbkC2mL4w'
+        'sb_publishable_lKjBf1R3Mp61eTFVj6Z8Vw_SirlxcAa'
       );
       window.supabaseClient = supabase;
 
