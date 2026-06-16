@@ -1,6 +1,10 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/world-ranking/:path*", "destination": "/index.html" },
+    { "source": "/anunciate", "destination": "/index.html" },
+    { "source": "/worldrank-pro", "destination": "/index.html" },
+    { "source": "/pro", "destination": "/index.html" },
+    { "source": "/admin", "destination": "/index.html" }
   ]
 }
