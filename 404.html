@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- PRIMARY META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dynamic base for Vercel (/) and GitHub Pages (/worldrank/) -->
+  <script>
+    (function(){
+      var base = document.createElement('base');
+      base.href = location.hostname.includes('github.io') ? '/worldrank/' : '/';
+      document.head.prepend(base);
+    })();
+  </script>
+  <title>WorldRank — Tendencias y Oportunidades de Negocio en Tiempo Real</title>
+  <meta name="description" content="Descubre productos virales, herramientas IA y tendencias con potencial de negocio. Rankings actualizados en tiempo real. Encuentra tu próxima oportunidad.">
+  <meta name="keywords" content="tendencias, productos virales, herramientas IA, rankings, oportunidades de negocio">
+  
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="WorldRank — Tendencias y Oportunidades">
+  <meta property="og:description" content="Descubre qué comprar, vender o crear según las tendencias globales.">
+  <meta property="og:image" content="https://worldrank-eta.vercel.app/og-image.png">
+  <meta property="og:url" content="https://worldrank-eta.vercel.app">
+  <meta property="og:type" content="website">
+  
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WorldRank — Tendencias y Oportunidades">
+  <meta name="twitter:description" content="Rankings de tendencias para tomar decisiones: qué comprar, vender o crear.">
+  
+  <link rel="canonical" href="https://worldrank-eta.vercel.app">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "WorldRank",
+    "url": "https://worldrank-eta.vercel.app",
+    "description": "Rankings de tendencias globales y oportunidades de negocio"
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR - keep existing but ADD commercial nav links -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <span class="logo-icon">🌍</span>
+    <span class="logo-text">World<span class="accent">Rank</span></span>
+  </div>
+  <!-- Hamburger for mobile -->
+  <div class="nav-toggle" id="navToggle">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="/" class="active">Inicio</a>
+    <a href="/world-ranking/productos-virales">Productos Virales</a>
+    <a href="/world-ranking/herramientas-ia">Herramientas IA</a>
+    <a href="/world-ranking/ideas-de-negocio">Ideas de Negocio</a>
+    <a href="/anunciate">Anúnciate</a>
+  </div>
+  <div class="nav-actions">
+    <a href="/admin" class="nav-admin-link" title="Admin">🔐</a>
+    <a href="#" class="btn-primary btn-sm" data-open-auth data-auth-tab="login">Iniciar sesión</a>
+  </div>
+  <div class="nav-time">
+    <span class="live-dot"></span>
+    <span id="last-updated">Actualizando...</span>
+  </div>
+</nav>
+
+<!-- HERO - redesigned with commercial CTAs -->
+<!-- Keep globe animation, but change text to focus on opportunities -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">🔝 Tendencias en tiempo real</span>
+    <h1 class="hero-title">Lo que triunfa ahora<br><span class="gradient-text">y cómo aprovecharlo</span></h1>
+    <p class="hero-subtitle">Descubre productos virales, herramientas IA y tendencias con potencial de negocio. Datos actualizados de Google Trends, YouTube, Reddit, X y TikTok.</p>
+    <div class="hero-ctas">
+      <a href="/world-ranking/productos-virales" class="btn-primary btn-lg">
+        <i class="fas fa-fire"></i> Ver productos virales
+      </a>
+      <a href="#newsletter" class="btn-secondary btn-lg">
+        <i class="fas fa-envelope"></i> Recibir tendencias
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-number" id="total-topics">—</span>
+        <span class="stat-label">Tendencias rastreadas</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Fuentes de datos</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">🌐</span>
+        <span class="stat-label">Cobertura global</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-globe">
+    <div class="globe-ring ring-1"></div>
+    <div class="globe-ring ring-2"></div>
+    <div class="globe-ring ring-3"></div>
+    <div class="globe-center">🌍</div>
+  </div>
+</header>
+
+<!-- OPPORTUNITY CATEGORIES SECTION - NEW -->
+<section class="section" id="oportunidades">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">💎</span>
+      <h2>Oportunidades de negocio</h2>
+    </div>
+    <a href="/world-ranking/ideas-de-negocio" class="btn-link">Ver todas <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <p class="section-subtitle">Convierte las tendencias en decisiones: qué comprar, qué vender, qué crear.</p>
+  <div class="category-grid">
+    <a href="/world-ranking/productos-virales" class="category-card" style="--cat-color: #ef4444">
+      <div class="cat-icon">🔥</div>
+      <h3>Productos Virales</h3>
+      <p>Lo que más se compra y recomienda</p>
+      <span class="cat-trend">+24% este mes</span>
+    </a>
+    <a href="/world-ranking/herramientas-ia" class="category-card" style="--cat-color: #8b5cf6">
+      <div class="cat-icon">🤖</div>
+      <h3>Herramientas IA</h3>
+      <p>IA que están revolucionando industrias</p>
+      <span class="cat-trend">+67% este mes</span>
+    </a>
+    <a href="/world-ranking/apps" class="category-card" style="--cat-color: #06b6d4">
+      <div class="cat-icon">📱</div>
+      <h3>Apps Populares</h3>
+      <p>Las apps que todo el mundo usa</p>
+      <span class="cat-trend">+15% este mes</span>
+    </a>
+    <a href="/world-ranking/tecnologia" class="category-card" style="--cat-color: #10b981">
+      <div class="cat-icon">💻</div>
+      <h3>Tecnología</h3>
+      <p>Gadgets y tech en tendencia</p>
+      <span class="cat-trend">+31% este mes</span>
+    </a>
+    <a href="/world-ranking/videojuegos" class="category-card" style="--cat-color: #f59e0b">
+      <div class="cat-icon">🎮</div>
+      <h3>Videojuegos</h3>
+      <p>Los juegos que arrasan</p>
+      <span class="cat-trend">+18% este mes</span>
+    </a>
+    <a href="/world-ranking/ideas-de-negocio" class="category-card" style="--cat-color: #f97316">
+      <div class="cat-icon">💡</div>
+      <h3>Ideas de Negocio</h3>
+      <p>Oportunidades basadas en tendencias</p>
+      <span class="cat-trend">+42% este mes</span>
+    </a>
+    <a href="/world-ranking/belleza" class="category-card" style="--cat-color: #f43f5e">
+      <div class="cat-icon">💄</div>
+      <h3>Belleza</h3>
+      <p>Cuidado personal y tendencias beauty</p>
+      <span class="cat-trend">+38% este mes</span>
+    </a>
+    <a href="/world-ranking/libros" class="category-card" style="--cat-color: #6366f1">
+      <div class="cat-icon">📚</div>
+      <h3>Libros</h3>
+      <p>Lecturas que están marcando tendencia</p>
+      <span class="cat-trend">+22% este mes</span>
+    </a>
+  </div>
+</section>
+
+<!-- VIRAL PRODUCTS PREVIEW - NEW -->
+<section class="section section-alt" id="productos-virales-preview">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">🔥</span>
+      <h2>Productos Virales del día</h2>
+    </div>
+    <a href="/world-ranking/productos-virales" class="btn-link">Ver ranking completo <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="item-grid" id="productos-grid">
+    <!-- JS generated from mock data -->
+  </div>
+</section>
+
+<!-- AI TOOLS PREVIEW - NEW -->
+<section class="section" id="ia-preview">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">🤖</span>
+      <h2>Herramientas IA en tendencia</h2>
+    </div>
+    <a href="/world-ranking/herramientas-ia" class="btn-link">Ver ranking completo <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="item-grid" id="ia-grid">
+    <!-- JS generated from mock data -->
+  </div>
+</section>
+
+<!-- BUSINESS IDEAS - NEW -->
+<section class="section section-alt" id="negocio-preview">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">💡</span>
+      <h2>Ideas de negocio basadas en tendencias</h2>
+    </div>
+    <a href="/world-ranking/ideas-de-negocio" class="btn-link">Ver todas <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="item-grid" id="negocio-grid">
+    <!-- JS generated from mock data -->
+  </div>
+</section>
+
+<!-- TRENDING SOURCES (keep existing sections but mark them as subtle/secondary) -->
+<section class="section" id="trending">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">📊</span>
+      <h2>Tendencias globales en vivo</h2>
+    </div>
+    <span class="badge">EN VIVO</span>
+  </div>
+  <p class="section-subtitle">Datos en tiempo real de Google Trends, YouTube, Reddit, X y TikTok</p>
+  <div class="ranking-grid" id="trends-grid">
+    <!-- Generado por JS -->
+  </div>
+</section>
+
+<section class="section" id="youtube">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">▶️</span>
+      <h2>YouTube Trending</h2>
+    </div>
+    <span class="badge badge-red">TOP 10</span>
+  </div>
+  <div class="ranking-grid" id="youtube-grid">
+    <!-- Generado por JS -->
+  </div>
+</section>
+
+<section class="section" id="reddit">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">👽</span>
+      <h2>Reddit — Lo más votado</h2>
+    </div>
+    <span class="badge badge-orange">HOT</span>
+  </div>
+  <div class="ranking-grid" id="reddit-grid">
+    <!-- Generado por JS -->
+  </div>
+</section>
+
+<section class="section" id="twitter">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">𝕏</span>
+      <h2>X / Twitter Trending</h2>
+    </div>
+    <span class="badge badge-blue">TRENDING</span>
+  </div>
+  <div class="ranking-grid" id="twitter-grid">
+    <!-- Generado por JS -->
+  </div>
+</section>
+
+<section class="section" id="tiktok">
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon">🎵</span>
+      <h2>TikTok Trending</h2>
+    </div>
+    <span class="badge badge-pink">VIRAL</span>
+  </div>
+  <div class="ranking-grid" id="tiktok-grid">
+    <!-- Generado por JS -->
+  </div>
+</section>
+
+<!-- ===== CATEGORY PAGE (hidden by default) ===== -->
+<section class="section" id="category-page" style="display:none">
+  <div class="breadcrumbs">
+    <a href="/">Inicio</a> <span class="sep">›</span>
+    <a href="/world-ranking/productos-virales" id="category-breadcrumb">Categoría</a>
+  </div>
+  <div class="filter-bar" id="category-filters">
+    <!-- JS generated -->
+  </div>
+  <div class="section-header">
+    <div class="section-title-group">
+      <span class="section-icon" id="category-icon">📂</span>
+      <h2 id="category-title">Categoría</h2>
+    </div>
+    <span class="badge badge-purple" id="category-count">0 items</span>
+  </div>
+  <div class="item-grid" id="category-grid">
+    <!-- JS generated -->
+  </div>
+</section>
+
+<!-- ===== ANÚNCIATE PAGE (hidden by default) ===== -->
+<section class="page-anunciate" id="page-anunciate" style="display:none">
+  <div class="breadcrumbs">
+    <a href="/">Inicio</a> <span class="sep">›</span>
+    <span>Anúnciate</span>
+  </div>
+  <div class="advertise-hero">
+    <h1>Anúnciate en <span class="gradient-text">WorldRank</span></h1>
+    <p>Llega a miles de emprendedores, creadores y early adopters que buscan tendencias y oportunidades de negocio.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🎯</div>
+      <h3>Audiencia cualificada</h3>
+      <p>Usuarios que buscan activamente productos, herramientas y oportunidades de negocio.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📊</div>
+      <h3>Resultados medibles</h3>
+      <p>Informes mensuales con impresiones, clics y conversiones.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🚀</div>
+      <h3>Alcance orgánico</h3>
+      <p>Tu marca aparece junto a las tendencias más buscadas del momento.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💡</div>
+      <h3>Formatos flexibles</h3>
+      <p>Banners, productos destacados, artículos patrocinados y más.</p>
+    </div>
+  </div>
+  <div class="section-header" style="padding:0 2.5rem;max-width:1400px;margin:0 auto">
+    <div class="section-title-group">
+      <span class="section-icon">📋</span>
+      <h2>Formatos disponibles</h2>
+    </div>
+  </div>
+  <div class="format-grid">
+    <div class="format-card">
+      <div class="format-icon">🛒</div>
+      <div>
+        <h4>Producto Destacado</h4>
+        <p>Tu producto aparece como recomendado en la categoría correspondiente con enlace de afiliado o directo. Ideal para ecommerce y marcas directas al consumidor.</p>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">📰</div>
+      <div>
+        <h4>Artículo Patrocinado</h4>
+        <p>Analizamos tu producto o servicio en un artículo dentro de nuestra sección de tendencias, con enlaces y call-to-action integrados.</p>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">🎬</div>
+      <div>
+        <h4>Video Review</h4>
+        <p>Review en vídeo generado con IA que muestra tu producto en acción. Se publica en la ficha del producto y en nuestras redes.</p>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">📬</div>
+      <div>
+        <h4>Newsletter Placement</h4>
+        <p>Mención destacada en nuestra newsletter semanal WorldRank Weekly, enviada a suscriptores interesados en tu categoría.</p>
+      </div>
+    </div>
+  </div>
+  <div class="advertise-form-section">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">✉️</span>
+        <h2>Solicita información</h2>
+      </div>
+    </div>
+    <p class="section-subtitle">Cuéntanos sobre tu producto o servicio y te enviaremos nuestras tarifas y opciones disponibles.</p>
+    <form class="advertise-form" id="advertiseForm">
+      <div class="full-width">
+        <label>Nombre de empresa *</label>
+        <input type="text" name="company" placeholder="Nombre de tu empresa o producto" required>
+      </div>
+      <div class="full-width">
+        <label>Email *</label>
+        <input type="email" name="email" placeholder="tu@email.com" required>
+      </div>
+      <div class="full-width">
+        <label>Sitio web</label>
+        <input type="url" name="website" placeholder="https://tusitio.com">
+      </div>
+      <div class="full-width">
+        <label>Teléfono</label>
+        <input type="tel" name="phone" placeholder="+34 ...">
+      </div>
+      <div class="full-width">
+        <label>Formato de interés</label>
+        <select name="plan">
+          <option value="starter">Producto Destacado</option>
+          <option value="business">Artículo Patrocinado</option>
+          <option value="enterprise">Video Review</option>
+          <option value="starter">Newsletter Placement</option>
+          <option value="enterprise">Pack Personalizado</option>
+        </select>
+      </div>
+      <div class="full-width">
+        <label>Presupuesto estimado</label>
+        <select name="budget">
+          <option>Menos de 500€</option>
+          <option>500€ - 1.000€</option>
+          <option>1.000€ - 3.000€</option>
+          <option>Más de 3.000€</option>
+          <option>No lo sé aún</option>
+        </select>
+      </div>
+      <div class="full-width">
+        <label>Mensaje</label>
+        <textarea name="message" placeholder="Cuéntanos más sobre lo que buscas..."></textarea>
+      </div>
+      <div class="full-width">
+        <button type="submit" class="btn-primary btn-lg">Enviar solicitud <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== WORLDRANK PRO PAGE (hidden by default) ===== -->
+<section class="page-pro" id="page-worldrank-pro" style="display:none">
+  <div class="breadcrumbs">
+    <a href="/">Inicio</a> <span class="sep">›</span>
+    <span>WorldRank Pro</span>
+  </div>
+  <div class="pro-hero">
+    <h1>WorldRank <span class="gradient-text">Pro</span></h1>
+    <p class="pro-subtitle">Datos de tendencias en tiempo real, alertas personalizadas y análisis avanzado para tomar decisiones de negocio antes que tu competencia.</p>
+    <a href="#pro-pricing" class="btn-primary btn-lg">Ver planes <i class="fas fa-arrow-down"></i></a>
+  </div>
+  <div class="pro-features-grid">
+    <div class="pro-feature-card">
+      <div class="pro-icon">📡</div>
+      <h3>Tendencias en tiempo real</h3>
+      <p>Accede a datos actualizados cada 5 minutos de Google Trends, YouTube, Reddit, X y TikTok.</p>
+    </div>
+    <div class="pro-feature-card">
+      <div class="pro-icon">🔔</div>
+      <h3>Alertas personalizadas</h3>
+      <p>Recibe notificaciones cuando una tendencia relacionada con tu nicho empiece a crecer.</p>
+    </div>
+    <div class="pro-feature-card">
+      <div class="pro-icon">📊</div>
+      <h3>Análisis histórico</h3>
+      <p>Gráficos y tendencias históricas para identificar patrones y estacionalidad.</p>
+    </div>
+    <div class="pro-feature-card">
+      <div class="pro-icon">🔗</div>
+      <h3>API de datos</h3>
+      <p>Acceso a nuestra API REST para integrar datos de tendencias en tus propias herramientas.</p>
+    </div>
+    <div class="pro-feature-card">
+      <div class="pro-icon">📤</div>
+      <h3>Exportación de datos</h3>
+      <p>Exporta rankings y análisis a CSV, PDF o Google Sheets con un solo clic.</p>
+    </div>
+    <div class="pro-feature-card">
+      <div class="pro-icon">🤝</div>
+      <h3>Soporte prioritario</h3>
+      <p>Atención personalizada con expertos en tendencias y análisis de mercado.</p>
+    </div>
+  </div>
+  <div class="section" id="pro-pricing">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">💰</span>
+        <h2>Planes Pro</h2>
+      </div>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">29€ <span>/mes</span></div>
+        <div class="pricing-desc">Para creadores y pequeños negocios que quieren estar al día.</div>
+        <ul class="pricing-features">
+          <li>Datos en tiempo real</li>
+          <li>5 alertas personalizadas</li>
+          <li>Histórico de 30 días</li>
+          <li>Exportación CSV</li>
+          <li>Newsletter premium</li>
+        </ul>
+        <a href="#" class="btn-primary" style="width:100%;justify-content:center" data-open-auth data-auth-tab="register">Empezar prueba gratis</a>
+      </div>
+      <div class="pricing-card featured">
+        <span class="pricing-badge">MÁS POPULAR</span>
+        <div class="pricing-name">Business</div>
+        <div class="pricing-price">79€ <span>/mes</span></div>
+        <div class="pricing-desc">Para agencias y equipos que necesitan análisis profundos.</div>
+        <ul class="pricing-features">
+          <li>Todo lo de Starter</li>
+          <li>25 alertas personalizadas</li>
+          <li>Histórico de 1 año</li>
+          <li>API REST incluida</li>
+          <li>Exportación CSV, PDF, Sheets</li>
+          <li>3 usuarios</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="#" class="btn-primary" style="width:100%;justify-content:center" data-open-auth data-auth-tab="register">Empezar prueba gratis</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-price">199€ <span>/mes</span></div>
+        <div class="pricing-desc">Para grandes equipos que necesitan datos masivos y personalización.</div>
+        <ul class="pricing-features">
+          <li>Todo lo de Business</li>
+          <li>Alertas ilimitadas</li>
+          <li>Histórico ilimitado</li>
+          <li>API dedicada</li>
+          <li>Usuarios ilimitados</li>
+          <li>Consultoría personalizada</li>
+          <li>Gestor de cuenta dedicado</li>
+        </ul>
+        <a href="#" class="btn-primary" style="width:100%;justify-content:center" data-open-auth data-auth-tab="register">Empezar prueba gratis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-content">
+    <span class="newsletter-badge">📬 GRATIS</span>
+    <h2>WorldRank Weekly</h2>
+    <p class="newsletter-claim">Recibe cada semana las tendencias con más potencial de negocio <strong>antes que la mayoría</strong>.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <div class="newsletter-input-group">
+        <input type="email" placeholder="tu@email.com" required id="newsletterEmail">
+        <button type="submit" class="btn-primary">Suscribirme gratis</button>
+      </div>
+      <div class="interest-tags">
+        <label class="interest-tag"><input type="checkbox" value="productos" checked> Productos virales</label>
+        <label class="interest-tag"><input type="checkbox" value="ia"> Herramientas IA</label>
+        <label class="interest-tag"><input type="checkbox" value="ecommerce"> Ecommerce</label>
+        <label class="interest-tag"><input type="checkbox" value="contenido"> Creación de contenido</label>
+        <label class="interest-tag"><input type="checkbox" value="nichos"> Inversión en nichos</label>
+      </div>
+    </form>
+    <p class="newsletter-note">Sin spam. Solo tendencias con potencial real. Puedes darte de baja cuando quieras.</p>
+  </div>
+</section>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="auth-modal" id="authModal">
+  <div class="auth-modal-content">
+    <button class="auth-modal-close" id="authModalClose">×</button>
+    <div class="auth-modal-header">
+      <span class="auth-logo">🌍</span>
+      <h2>WorldRank</h2>
+      <p>Accede a funciones Pro</p>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="authTabLogin">Iniciar sesión</button>
+      <button class="auth-tab" id="authTabRegister">Crear cuenta</button>
+    </div>
+    <form class="auth-form active" id="loginForm">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit" class="btn-primary">Entrar</button>
+    </form>
+    <form class="auth-form" id="registerForm">
+      <input type="text" name="name" placeholder="Nombre (opcional)">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Contraseña (mín. 6 caracteres)" required>
+      <select name="plan">
+        <option value="starter">Starter — 29€/mes</option>
+        <option value="business">Business — 79€/mes</option>
+        <option value="enterprise">Enterprise — 199€/mes</option>
+      </select>
+      <button type="submit" class="btn-primary">Crear cuenta</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== ADMIN PANEL (hidden by default) ===== -->
+<section class="page-admin" id="page-admin" style="display:none">
+  <div class="breadcrumbs" style="padding:1rem 2.5rem;max-width:1400px;margin:0 auto">
+    <a href="/">Inicio</a> <span class="sep">›</span>
+    <span>Admin</span>
+  </div>
+  <div id="adminContent" style="padding:0 2.5rem 3rem;max-width:1400px;margin:0 auto;min-height:50vh"></div>
+</section>
+
+<!-- FOOTER - expanded -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">🌍 World<span class="accent">Rank</span></div>
+      <p class="footer-desc">Rankings de tendencias globales para tomar decisiones de negocio informadas.</p>
+      <div class="affiliate-notice">
+        <i class="fas fa-info-circle"></i> WorldRank puede recibir una comisión si compras a través de algunos enlaces. Esto no afecta al precio que pagas.
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Rankings</h4>
+      <a href="/world-ranking/productos-virales">Productos Virales</a>
+      <a href="/world-ranking/herramientas-ia">Herramientas IA</a>
+      <a href="/world-ranking/apps">Apps Populares</a>
+      <a href="/world-ranking/tecnologia">Tecnología</a>
+      <a href="/world-ranking/belleza">Belleza</a>
+      <a href="/world-ranking/videojuegos">Videojuegos</a>
+      <a href="/world-ranking/libros">Libros</a>
+      <a href="/world-ranking/ideas-de-negocio">Ideas de Negocio</a>
+    </div>
+    <div class="footer-col">
+      <h4>Plataforma</h4>
+      <a href="/anunciate">Anúnciate</a>
+      <a href="/worldrank-pro">WorldRank Pro</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 WorldRank — Rankings de tendencias globales</p>
+    <p class="footer-sub">Datos obtenidos de Google Trends · YouTube · Reddit · X/Twitter · TikTok</p>
+  </div>
+</footer>
+
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
