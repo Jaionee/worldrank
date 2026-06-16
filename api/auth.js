@@ -4,7 +4,7 @@
 // POST /api/auth/login     →  Iniciar sesión
 // GET  /api/auth/me        →  Perfil actual
 // ============================================================
-import { getClient, getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions } from '../_supabase.js';
+import { getClient, getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions } from './_supabase.js';
 
 export const config = {
   runtime: 'nodejs18.x',

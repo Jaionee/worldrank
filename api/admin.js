@@ -3,7 +3,7 @@
 // GET /api/admin/stats   →  Resumen de datos
 // GET /api/admin/data    →  Datos de una tabla específica
 // ============================================================
-import { getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions } from '../_supabase.js';
+import { getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions } from './_supabase.js';
 
 export const config = {
   runtime: 'nodejs18.x',
