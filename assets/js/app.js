@@ -146,7 +146,7 @@ async function loadData() {
   };
 
   try {
-    const resp = await fetch("/api/all", { signal: AbortSignal.timeout(8000) });
+    const resp = await fetch("/data/data.json", { signal: AbortSignal.timeout(8000) });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
 
@@ -333,8 +333,19 @@ function showSection(id) {
 
 function renderCategoryPage(slug) {
   const cat = CATEGORY_MAP[slug];
-  if (!cat || typeof WORLDRANK_DATA === 'undefined') {
+  if (!cat) {
     window.location.href = '/';
+    return;
+  }
+  if (typeof WORLDRANK_DATA === 'undefined') {
+    showSection('category-page');
+    document.getElementById('category-icon').textContent = cat.icon;
+    document.getElementById('category-title').textContent = cat.title;
+    document.getElementById('category-breadcrumb').textContent = cat.title;
+    document.getElementById('category-breadcrumb').href = `/world-ranking/${slug}`;
+    document.getElementById('category-count').textContent = '... cargando';
+    document.getElementById('category-grid').innerHTML = '<div class="empty-state">⏳ Cargando datos...</div>';
+    document.title = `${cat.title} — WorldRank`;
     return;
   }
 
