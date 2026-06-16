@@ -201,41 +201,60 @@ function initNewsletter() {
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Enviando..."; }
 
     try {
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, interests }),
-      });
-      const data = await res.json();
+      const supabase = window.supabaseClient || window.supabase.createClient(
+        'https://eswmmdejyldalfupmxit.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzd21tZGVqeWxkYWxmdXBteGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1ODk2NjcsImV4cCI6MjA5NzE2NTY2N30.XYEd5EtaBfBrbCeGLz0Ni0I-160DNIOa_vKbkC2mL4w'
+      );
+      window.supabaseClient = supabase;
 
-      const content = form.parentElement;
-      const success = document.createElement("div");
-      success.className = "newsletter-success show";
+      const { data: existing, error: checkErr } = await supabase
+        .from('newsletter')
+        .select('id, active')
+        .eq('email', email.toLowerCase().trim())
+        .maybeSingle();
 
-      if (res.ok) {
-        success.innerHTML = `
-          <div class="success-icon">🎉</div>
-          <h3>¡Te has suscrito!</h3>
-          <p>Pronto recibirás las mejores tendencias en <strong>${email}</strong></p>
-        `;
-      } else if (res.status === 409) {
-        success.innerHTML = `
-          <div class="success-icon">✅</div>
-          <h3>Ya estabas suscrito</h3>
-          <p>El email <strong>${email}</strong> ya está en nuestra lista. ¡Gracias!</p>
-        `;
+      if (existing) {
+        if (existing.active) {
+          // Already subscribed
+          const content = form.parentElement;
+          const success = document.createElement('div');
+          success.className = 'newsletter-success show';
+          success.innerHTML = `
+            <div class="success-icon">✅</div>
+            <h3>Ya estabas suscrito</h3>
+            <p>El email <strong>${email}</strong> ya está en nuestra lista. ¡Gracias!</p>
+          `;
+          form.style.display = 'none';
+          content.appendChild(success);
+          return;
+        }
+        // Re-activate
+        await supabase.from('newsletter').update({ active: true, interests }).eq('id', existing.id);
       } else {
-        success.innerHTML = `
-          <div class="success-icon">❌</div>
-          <h3>Error al suscribir</h3>
-          <p>${data.error || 'Inténtalo de nuevo más tarde'}</p>
-        `;
+        // New subscription
+        const { error: insertErr } = await supabase.from('newsletter').insert({
+          email: email.toLowerCase().trim(),
+          interests,
+          source: 'web',
+        });
+        if (insertErr) throw insertErr;
       }
-      form.style.display = "none";
+
+      // Success
+      const content = form.parentElement;
+      const success = document.createElement('div');
+      success.className = 'newsletter-success show';
+      success.innerHTML = `
+        <div class="success-icon">🎉</div>
+        <h3>¡Te has suscrito!</h3>
+        <p>Pronto recibirás las mejores tendencias en <strong>${email}</strong></p>
+      `;
+      form.style.display = 'none';
       content.appendChild(success);
     } catch (err) {
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Suscribirse"; }
-      alert("Error de conexión. Inténtalo de nuevo.");
+      console.error(err);
+      alert("Error al suscribir. Inténtalo de nuevo.");
     }
   });
 }
@@ -438,12 +457,23 @@ function initAdvertiseForm() {
     if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
 
     try {
-      const res = await fetch("/api/advertise", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      const supabase = window.supabaseClient || window.supabase.createClient(
+        'https://eswmmdejyldalfupmxit.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzd21tZGVqeWxkYWxmdXBteGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1ODk2NjcsImV4cCI6MjA5NzE2NTY2N30.XYEd5EtaBfBrbCeGLz0Ni0I-160DNIOa_vKbkC2mL4w'
+      );
+      window.supabaseClient = supabase;
+
+      const { error: insertErr } = await supabase.from('advertisers').insert({
+        company_name: data.company_name,
+        email: data.email,
+        website: data.website,
+        phone: data.phone,
+        plan: data.plan,
+        budget: data.budget,
+        message: data.message,
       });
-      const result = await res.json();
+
+      if (insertErr) throw insertErr;
 
       // Show success message
       const section = form.closest(".advertise-form-section") || form.parentElement;
@@ -451,13 +481,13 @@ function initAdvertiseForm() {
         <div class="newsletter-success show" style="text-align:center;padding:3rem">
           <div class="success-icon">🎉</div>
           <h3>¡Solicitud enviada!</h3>
-          <p>${result.message || 'Te contactaremos pronto con nuestras tarifas y opciones.'}</p>
-          <a href="/" class="btn-primary" style="margin-top:1.5rem;display:inline-flex">Volver al inicio</a>
+          <p>Te contactaremos pronto con nuestras tarifas y opciones disponibles.</p>
         </div>
       `;
     } catch (err) {
       if (btn) { btn.disabled = false; btn.textContent = "Enviar solicitud"; }
-      alert("Error de conexión. Inténtalo de nuevo.");
+      console.error(err);
+      alert("Error al enviar. Inténtalo de nuevo.");
     }
   });
 }
