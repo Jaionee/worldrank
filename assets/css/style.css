@@ -250,6 +250,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--tex
 .advertise-form input:focus,.advertise-form select:focus,.advertise-form textarea:focus{border-color:var(--accent)}
 .advertise-form textarea{resize:vertical;min-height:140px}
 .advertise-form .btn-primary{width:100%;justify-content:center;padding:1rem;font-size:1rem}
+.nav-actions{display:flex;align-items:center;gap:.5rem;margin-left:auto;margin-right:1rem}
+.nav-admin-link{text-decoration:none;font-size:1.1rem;opacity:.5;transition:opacity .2s}
+.nav-admin-link:hover{opacity:1}
 
 /* ===== TRUST BADGES ===== */
 .trust-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:8px;font-size:.7rem;color:var(--emerald)}
@@ -318,3 +321,57 @@ body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--tex
   .nav-links a{font-size:1rem;padding:.5rem 0}
   .stat-card{padding:1rem;width:100%}
 }
+
+/* ── Auth Modal ── */
+.auth-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
+  z-index:9999;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.auth-modal.open{opacity:1;pointer-events:all}
+.auth-modal-content{
+  background:var(--card-bg,#1a1a2e);border-radius:20px;
+  padding:2.5rem;width:100%;max-width:420px;
+  border:1px solid rgba(255,255,255,0.08);position:relative;
+  max-height:90vh;overflow-y:auto;
+}
+.auth-modal-close{
+  position:absolute;top:1rem;right:1.2rem;
+  background:none;border:none;color:var(--text-muted,#666);
+  font-size:1.8rem;cursor:pointer;line-height:1;
+}
+.auth-modal-header{text-align:center;margin-bottom:1.5rem}
+.auth-logo{font-size:2.5rem;display:block;margin-bottom:.5rem}
+.auth-modal-header h2{margin:0;font-size:1.4rem}
+.auth-modal-header p{margin:.3rem 0 0;color:var(--text-secondary,#888);font-size:.9rem}
+.auth-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;background:rgba(255,255,255,0.05);border-radius:12px;padding:4px}
+.auth-tab{flex:1;padding:.6rem;border:none;background:none;color:var(--text-muted,#666);cursor:pointer;border-radius:8px;font-size:.9rem;transition:all .2s}
+.auth-tab.active{background:var(--accent,#6c5ce7);color:#fff}
+.auth-form{display:none;flex-direction:column;gap:.8rem}
+.auth-form.active{display:flex}
+.auth-form input,.auth-form select{
+  padding:.75rem 1rem;border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);color:#fff;
+  font-size:.95rem;width:100%;box-sizing:border-box;
+}
+.auth-form input::placeholder{color:rgba(255,255,255,0.3)}
+.auth-form select option{background:#1a1a2e;color:#fff}
+.auth-form .btn-primary{width:100%;justify-content:center}
+
+/* ── Admin Panel ── */
+.admin-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem}
+.admin-stat-card{
+  background:var(--card-bg,#1a1a2e);border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:1.5rem;text-align:center;
+  transition:all .2s;
+}
+.admin-stat-card:hover{border-color:var(--accent,#6c5ce7);transform:translateY(-2px)}
+.admin-stat-icon{font-size:2rem;margin-bottom:.5rem}
+.admin-stat-number{font-size:2rem;font-weight:800;color:var(--accent,#6c5ce7)}
+.admin-stat-label{color:var(--text-secondary,#888);font-size:.85rem;margin-top:.3rem}
+#adminContent table{width:100%;border-collapse:collapse;font-size:.85rem}
+#adminContent table th{padding:.6rem;text-align:left;white-space:nowrap;color:var(--text-secondary,#888);background:rgba(255,255,255,0.03)}
+#adminContent table td{padding:.5rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,0.05)}
+#adminContent table tr:hover td{background:rgba(255,255,255,0.03)}

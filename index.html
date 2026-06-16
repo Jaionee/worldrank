@@ -55,6 +55,10 @@
     <a href="/world-ranking/ideas-de-negocio">Ideas de Negocio</a>
     <a href="/anunciate">Anúnciate</a>
   </div>
+  <div class="nav-actions">
+    <a href="/admin" class="nav-admin-link" title="Admin">🔐</a>
+    <a href="#" class="btn-primary btn-sm" data-open-auth data-auth-tab="login">Iniciar sesión</a>
+  </div>
   <div class="nav-time">
     <span class="live-dot"></span>
     <span id="last-updated">Actualizando...</span>
@@ -369,30 +373,34 @@
     <p class="section-subtitle">Cuéntanos sobre tu producto o servicio y te enviaremos nuestras tarifas y opciones disponibles.</p>
     <form class="advertise-form" id="advertiseForm">
       <div class="full-width">
-        <label>Nombre</label>
-        <input type="text" placeholder="Tu nombre" required>
+        <label>Nombre de empresa *</label>
+        <input type="text" name="company" placeholder="Nombre de tu empresa o producto" required>
       </div>
       <div class="full-width">
-        <label>Email</label>
-        <input type="email" placeholder="tu@email.com" required>
+        <label>Email *</label>
+        <input type="email" name="email" placeholder="tu@email.com" required>
       </div>
       <div class="full-width">
-        <label>Empresa / Producto</label>
-        <input type="text" placeholder="Nombre de tu empresa o producto">
+        <label>Sitio web</label>
+        <input type="url" name="website" placeholder="https://tusitio.com">
+      </div>
+      <div class="full-width">
+        <label>Teléfono</label>
+        <input type="tel" name="phone" placeholder="+34 ...">
       </div>
       <div class="full-width">
         <label>Formato de interés</label>
-        <select>
-          <option>Producto Destacado</option>
-          <option>Artículo Patrocinado</option>
-          <option>Video Review</option>
-          <option>Newsletter Placement</option>
-          <option>Pack Personalizado</option>
+        <select name="plan">
+          <option value="starter">Producto Destacado</option>
+          <option value="business">Artículo Patrocinado</option>
+          <option value="enterprise">Video Review</option>
+          <option value="starter">Newsletter Placement</option>
+          <option value="enterprise">Pack Personalizado</option>
         </select>
       </div>
       <div class="full-width">
         <label>Presupuesto estimado</label>
-        <select>
+        <select name="budget">
           <option>Menos de 500€</option>
           <option>500€ - 1.000€</option>
           <option>1.000€ - 3.000€</option>
@@ -402,7 +410,7 @@
       </div>
       <div class="full-width">
         <label>Mensaje</label>
-        <textarea placeholder="Cuéntanos más sobre lo que buscas..."></textarea>
+        <textarea name="message" placeholder="Cuéntanos más sobre lo que buscas..."></textarea>
       </div>
       <div class="full-width">
         <button type="submit" class="btn-primary btn-lg">Enviar solicitud <i class="fas fa-arrow-right"></i></button>
@@ -473,7 +481,7 @@
           <li>Exportación CSV</li>
           <li>Newsletter premium</li>
         </ul>
-        <a href="#" class="btn-primary" style="width:100%;justify-content:center">Empezar prueba gratis</a>
+        <a href="#" class="btn-primary" style="width:100%;justify-content:center" data-open-auth data-auth-tab="register">Empezar prueba gratis</a>
       </div>
       <div class="pricing-card featured">
         <span class="pricing-badge">MÁS POPULAR</span>
@@ -489,22 +497,22 @@
           <li>3 usuarios</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a href="#" class="btn-primary" style="width:100%;justify-content:center">Empezar prueba gratis</a>
+        <a href="#" class="btn-primary" style="width:100%;justify-content:center" data-open-auth data-auth-tab="register">Empezar prueba gratis</a>
       </div>
       <div class="pricing-card">
         <div class="pricing-name">Enterprise</div>
         <div class="pricing-price">199€ <span>/mes</span></div>
-        <div class="pricing-desc">Para empresas que quieren integrar tendencias en su stack.</div>
+        <div class="pricing-desc">Para grandes equipos que necesitan datos masivos y personalización.</div>
         <ul class="pricing-features">
           <li>Todo lo de Business</li>
           <li>Alertas ilimitadas</li>
-          <li>Histórico completo</li>
-          <li>API con mayor cuota</li>
+          <li>Histórico ilimitado</li>
+          <li>API dedicada</li>
           <li>Usuarios ilimitados</li>
-          <li>Account manager dedicado</li>
-          <li>Onboarding personalizado</li>
+          <li>Consultoría personalizada</li>
+          <li>Gestor de cuenta dedicado</li>
         </ul>
-        <a href="#" class="btn-primary" style="width:100%;justify-content:center">Contactar ventas</a>
+        <a href="#" class="btn-primary" style="width:100%;justify-content:center" data-open-auth data-auth-tab="register">Empezar prueba gratis</a>
       </div>
     </div>
   </div>
@@ -531,6 +539,47 @@
     </form>
     <p class="newsletter-note">Sin spam. Solo tendencias con potencial real. Puedes darte de baja cuando quieras.</p>
   </div>
+</section>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="auth-modal" id="authModal">
+  <div class="auth-modal-content">
+    <button class="auth-modal-close" id="authModalClose">×</button>
+    <div class="auth-modal-header">
+      <span class="auth-logo">🌍</span>
+      <h2>WorldRank</h2>
+      <p>Accede a funciones Pro</p>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="authTabLogin">Iniciar sesión</button>
+      <button class="auth-tab" id="authTabRegister">Crear cuenta</button>
+    </div>
+    <form class="auth-form active" id="loginForm">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit" class="btn-primary">Entrar</button>
+    </form>
+    <form class="auth-form" id="registerForm">
+      <input type="text" name="name" placeholder="Nombre (opcional)">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Contraseña (mín. 6 caracteres)" required>
+      <select name="plan">
+        <option value="starter">Starter — 29€/mes</option>
+        <option value="business">Business — 79€/mes</option>
+        <option value="enterprise">Enterprise — 199€/mes</option>
+      </select>
+      <button type="submit" class="btn-primary">Crear cuenta</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== ADMIN PANEL (hidden by default) ===== -->
+<section class="page-admin" id="page-admin" style="display:none">
+  <div class="breadcrumbs" style="padding:1rem 2.5rem;max-width:1400px;margin:0 auto">
+    <a href="/">Inicio</a> <span class="sep">›</span>
+    <span>Admin</span>
+  </div>
+  <div id="adminContent" style="padding:0 2.5rem 3rem;max-width:1400px;margin:0 auto;min-height:50vh"></div>
 </section>
 
 <!-- FOOTER - expanded -->
