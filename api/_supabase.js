@@ -1,53 +1,43 @@
-// ============================================================
-// Supabase client — shared by all API endpoints
-// ============================================================
-import { createClient } from '@supabase/supabase-js';
+// Supabase client — shared by all API endpoints (CommonJS)
+const { createClient } = require('@supabase/supabase-js');
 
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || '';
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
-// Public client (RLS-enforced)
-export function getClient() {
+function getClient() {
   return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }
 
-// Admin client (bypasses RLS)
-export function getAdminClient() {
+function getAdminClient() {
   return createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 }
 
-// Auth helpers
-export function corsHeaders(origin = '*') {
+function corsHeaders(origin = '*') {
   return {
     'Access-Control-Allow-Origin': origin,
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    'Content-Type': 'application/json',
   };
 }
 
-export function errorResponse(message, status = 400) {
-  return new Response(JSON.stringify({ error: message }), {
-    status,
-    headers: corsHeaders(),
-  });
+function errorResponse(res, message, status = 400) {
+  res.setHeader('Content-Type', 'application/json');
+  res.status(status).json({ error: message });
 }
 
-export function successResponse(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: corsHeaders(),
-  });
+function successResponse(res, data, status = 200) {
+  res.setHeader('Content-Type', 'application/json');
+  res.status(status).json(data);
 }
 
-// CORS preflight handler
-export function handleOptions(request) {
-  if (request.method === 'OPTIONS') {
-    return new Response(null, {
-      status: 204,
-      headers: corsHeaders(),
-    });
+function handleOptions(req, res) {
+  if (req.method === 'OPTIONS') {
+    Object.entries(corsHeaders()).forEach(([k, v]) => res.setHeader(k, v));
+    res.status(204).end();
+    return true;
   }
-  return null;
+  return false;
 }
+
+module.exports = { getClient, getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions };

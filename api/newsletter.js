@@ -1,42 +1,38 @@
-// ============================================================
 // Newsletter API — Suscripción
 // POST /api/newsletter  →  Registrar suscriptor
 // GET  /api/newsletter  →  Listar suscriptores (admin)
-// ============================================================
-import { getClient, getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions } from './_supabase.js';
+const { getClient, getAdminClient, corsHeaders, errorResponse, successResponse, handleOptions } = require('./_supabase.js');
 
-export const config = {
-  runtime: 'nodejs18.x',
-};
-
-export default async function handler(request) {
-  // CORS preflight
-  const options = handleOptions(request);
-  if (options) return options;
-
-  const url = new URL(request.url);
-  const method = request.method;
+module.exports = async (req, res) => {
+  if (handleOptions(req, res)) return;
 
   try {
-    if (method === 'POST') {
-      return await subscribe(request);
+    if (req.method === 'POST') {
+      return await subscribe(req, res);
     }
-    if (method === 'GET') {
-      return await listSubscribers(request);
+    if (req.method === 'GET') {
+      return await listSubscribers(req, res);
     }
-    return errorResponse('Method not allowed', 405);
+    errorResponse(res, 'Method not allowed', 405);
   } catch (err) {
     console.error('Newsletter error:', err);
-    return errorResponse('Internal server error', 500);
+    errorResponse(res, 'Internal server error', 500);
   }
-}
+};
 
-async function subscribe(request) {
-  const body = await request.json();
+async function subscribe(req, res) {
+  let body;
+  try {
+    body = JSON.parse(req.body);
+  } catch {
+    // If body is already parsed (Vercel sometimes does this)
+    body = req.body || {};
+  }
+
   const { email, interests } = body;
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return errorResponse('Email inválido');
+    return errorResponse(res, 'Email inválido');
   }
 
   const supabase = getClient();
@@ -50,7 +46,7 @@ async function subscribe(request) {
 
   if (existing) {
     if (existing.active) {
-      return errorResponse('Ya estás suscrito con este email', 409);
+      return errorResponse(res, 'Ya estás suscrito con este email', 409);
     }
     // Re-activate
     const { error: reactErr } = await supabase
@@ -58,7 +54,7 @@ async function subscribe(request) {
       .update({ active: true, interests: interests || [] })
       .eq('id', existing.id);
     if (reactErr) throw reactErr;
-    return successResponse({ message: 'Suscripción reactivada', email: email.toLowerCase().trim() }, 200);
+    return successResponse(res, { message: 'Suscripción reactivada', email: email.toLowerCase().trim() }, 200);
   }
 
   // New subscription
@@ -72,23 +68,22 @@ async function subscribe(request) {
 
   if (insertErr) {
     if (insertErr.code === '23505') {
-      return errorResponse('Ya estás suscrito', 409);
+      return errorResponse(res, 'Ya estás suscrito', 409);
     }
     throw insertErr;
   }
 
-  return successResponse({ message: '¡Suscripción exitosa!', email: email.toLowerCase().trim() }, 201);
+  return successResponse(res, { message: '¡Suscripción exitosa!', email: email.toLowerCase().trim() }, 201);
 }
 
-async function listSubscribers(request) {
-  // Admin check via Authorization header (will hold service_role key)
-  const auth = request.headers.get('Authorization');
+async function listSubscribers(req, res) {
+  const auth = req.headers.authorization;
   if (!auth || !auth.startsWith('Bearer ') || auth.slice(7) !== process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    return errorResponse('Unauthorized', 401);
+    return errorResponse(res, 'Unauthorized', 401);
   }
 
   const supabase = getAdminClient();
-  const url = new URL(request.url);
+  const url = new URL(req.url, 'https://n');
   const page = parseInt(url.searchParams.get('page') || '1');
   const limit = parseInt(url.searchParams.get('limit') || '50');
   const offset = (page - 1) * limit;
@@ -101,7 +96,7 @@ async function listSubscribers(request) {
 
   if (error) throw error;
 
-  return successResponse({
+  return successResponse(res, {
     data,
     total: count,
     page,

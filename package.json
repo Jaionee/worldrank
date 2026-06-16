@@ -2,7 +2,6 @@
   "name": "worldrank",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "description": "WorldRank — Rankings de tendencias globales",
   "scripts": {
     "dev": "vercel dev",
